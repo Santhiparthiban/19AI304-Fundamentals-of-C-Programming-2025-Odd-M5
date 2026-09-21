@@ -39,7 +39,46 @@
 ### Step 12: 
   Stop
 # Program:
+```
+#include <stdio.h>
+
+void swapv(int x, int y)  
+{
+    int temp;
+    temp = x;
+    x = y;
+    y = temp;
+    printf("\nInside swapv (Call by Value): x = %d, y = %d", x, y);
+}
+
+void swapr(int *x, int *y)  
+{
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+    printf("\nInside swapr (Call by Reference): x = %d, y = %d", *x, *y);
+}
+
+int main()
+{
+    int a = 10, b = 20;
+
+    printf("Before swapv: a = %d, b = %d\n", a, b);
+    swapv(a, b);
+    printf("\nAfter swapv: a = %d, b = %d\n", a, b);
+
+    printf("\nBefore swapr: a = %d, b = %d\n", a, b);
+    swapr(&a, &b);
+    printf("\nAfter swapr: a = %d, b = %d\n", a, b);
+
+    return 0;
+}
+```
+
 # Output:
+<img width="951" height="617" alt="image" src="https://github.com/user-attachments/assets/ccf323cd-89b5-4d7b-ab2b-bac33e516726" />
+
 # Result: 
   Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -48,7 +87,7 @@
 # IAPR-5- Module 5 - FoC
 # Ex.No:22
   Implement a C program to generate the Fibonacci series using a recursive function. The program should accept a positive integer n and display the first n terms of the Fibonacci sequence.
-# Date : 
+
 # Aim:
   To implement a C program that uses a recursive function to generate and display the Fibonacci series for a given number of terms.
 # Algorithm:
@@ -77,7 +116,37 @@
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+int fibo(int x)   
+{
+    if (x == 0 || x == 1)
+        return x;
+    else
+        return fibo(x - 1) + fibo(x - 2);
+}
+
+int main()
+{
+    int n, i;
+
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
+
+    printf("Fibonacci series of %d terms:\n", n);
+
+    for (i = 0; i < n; i++)
+    {
+        printf("%d ", fibo(i));
+    }
+
+    return 0;
+}
+```
 # Output:
+<img width="985" height="352" alt="image" src="https://github.com/user-attachments/assets/725c7213-3d41-4235-ad55-ababec7c2330" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -161,7 +230,42 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 11:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+void printEvenOdd(int cur, int limit)
+{
+    if (cur > limit)
+        return;
+
+    if (cur == limit)
+        printf("%d", cur);
+    else
+        printf("%d, ", cur);
+
+    printEvenOdd(cur + 2, limit);
+}
+
+int main()
+{
+    int lowerLimit, upperLimit;
+
+    printf("Enter the lower limit: ");
+    scanf("%d", &lowerLimit);
+
+    printf("Enter the upper limit: ");
+    scanf("%d", &upperLimit);
+
+    printf("The sequence of even/odd numbers in the given range:\n");
+
+    printEvenOdd(lowerLimit, upperLimit);
+
+    return 0;
+}
+```
 # Output:
+<img width="993" height="423" alt="image" src="https://github.com/user-attachments/assets/c8ed1abf-3f05-4a1e-8656-37c7c498adba" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -197,6 +301,46 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int *ptr;
+    int n, i, sum = 0;
+
+    printf("Enter the number of integers: ");
+    scanf("%d", &n);
+
+    ptr = calloc(n, sizeof(int));
+
+    if (ptr == NULL)
+    {
+        printf("Memory allocation failed.\n");
+        return 0;
+    }
+
+    printf("Enter %d integers:\n", n);
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", (ptr + i));
+    }
+
+    for (i = 0; i < n; i++)
+    {
+        sum += *(ptr + i);
+    }
+
+    printf("Sum of the entered integers = %d\n", sum);
+
+    free(ptr);
+
+    return 0;
+}
+```
 # Output:
+<img width="1001" height="543" alt="image" src="https://github.com/user-attachments/assets/65a99145-475f-418d-b04c-75e83a1c8d42" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
